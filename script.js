@@ -1,15 +1,14 @@
-function firstNonRepeatedChar(str) {
- // Write your code here
-	let str =str.toLowerCase();
-	for(let i=0; i<=str.length; i++ ){
-	if(str.indexOf(str[i])===str.lastIndexOf(str[i])){
-    return str[i];
-	}
-	
+function firstNonRepeatedChar(string) {
+   for (let i = 0; i < string.length; i++) {
+       const char = string.charAt(i);
+       if (string.indexOf(char) === i && string.indexOf(char, i + 1) === -1) {
+           return char;
+       }
+   }
+   return null;
 }
-return null;
-}
-let output =firstNonRepeatedChar();
-console.log(output);
-const input = prompt("Enter a string");
-/*((firstNonRepeatedChar(input));
+
+// Example usage:
+const inputString = "snbdkbakbkaa";
+const result = firstNonRepeatedChar(inputString);
+console.log(`First non-repeated character: ${result}`);
